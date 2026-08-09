@@ -38,7 +38,7 @@ This repository documents my learning journey and hands-on experiments completed
 - Technology Mapping & Gate-Level Netlist
 - Practical Exercise, Results & Conclusion
 
-➡️ **Documentation:** [Module-1 README](https://github.com/ArpithaGarrepalli/RTL_Workshop/blob/main/Day_1/README.md)
+➡️ **Documentation:** [Module-1 README](https://github.com/ArpithaGarrepalli/RTL_Workshop/blob/main/Module_1/README.md)
 
 ---
 
