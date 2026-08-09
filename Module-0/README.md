@@ -17,7 +17,7 @@ This document covers Module 0 of the RTL Design Workshop, focused on getting the
 |---|---|
 | 🛠️ **Tools installed** | Icarus Verilog, GTKWave, Yosys |
 | 💻 **Environments covered** | Cloud lab, local Ubuntu/Linux setup |
-| 📋 **Prerequisites** | A Linux-based system or VM (Ubuntu recommended) |
+| 📋 **Prerequisites** | A Linux-based system or VM |
 
 ## 📑 Table of Contents
 
@@ -59,13 +59,7 @@ To use it:
 
 ### 2.1 System Requirements
 
-Local installation assumes an Ubuntu (or other Debian-based) Linux system, either natively or inside a virtual machine such as Oracle VM VirtualBox. Update the package index before installing anything:
-
-```bash
-sudo apt update
-sudo apt upgrade -y
-```
-
+Local installation assumes an Ubuntu (Linux system), either natively or inside a virtual machine such as Oracle VM VirtualBox.
 ### 2.2 Installing Icarus Verilog and GTKWave
 
 ```bash
@@ -79,14 +73,8 @@ sudo apt install gtkwave
 sudo apt install yosys
 ```
 
-If a newer version is needed, Yosys can also be built from source:
-
 ```bash
-git clone https://github.com/YosysHQ/yosys.git
-cd yosys
-make config-gcc
-make
-sudo make install
+git clone https://github.com/kunalg123/sky130RTLDesignAndSynthesisWorkshop.git
 ```
 
 ### 2.4 Verifying the Installation
