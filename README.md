@@ -29,14 +29,18 @@ This repository documents my learning journey and hands-on experiments completed
 
 **Topics Covered:**
 
-- Workshop Overview
-- Digital Design & RTL Design Flow
-- Verilog Design and Testbench
-- Icarus Verilog & GTKWave
-- Good Shift Register Design
-- Yosys, Gate Libraries & RTL Synthesis
-- Technology Mapping & Gate-Level Netlist
-- Practical Exercise, Results & Conclusion
+- 1. Introduction to the Open-Source Simulator Iverilog
+  - 1.1 Core Concepts: Simulator, Design, and Testbench
+  - 1.2 How Iverilog Fits In
+- 2. Labs: Iverilog and GTKWave
+  - 2.1 Lab 1 — Environment Setup
+  - 2.2 Lab 2 — Compile and Simulate
+  - 2.3 Lab 3 — Waveform Analysis
+  - 2.4 Verilog Code Analysis
+- 3. Introduction to Yosys and Logic Synthesis
+  - 3.1 What Synthesis Does
+  - 3.2 Lab: Synthesizing the Design
+- 4. Takeaways
 
 ➡️ **Documentation:** [Module-1 README](https://github.com/ArpithaGarrepalli/RTL_Workshop/blob/main/Module-1/README.md)
 
