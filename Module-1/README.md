@@ -1,4 +1,4 @@
-# 🔧 Day 1 — Introduction to Verilog RTL Design & Synthesis
+# 🔧 Module 1 — Introduction to Verilog RTL Design & Synthesis
 
 <p>
   <img src="https://img.shields.io/badge/Tool-Icarus%20Verilog-blue" alt="Icarus Verilog">
@@ -11,7 +11,7 @@
 
 ## 📖 Overview
 
-This document covers Day 1 of the RTL Design Workshop, focused on the fundamentals of Verilog RTL design simulating designs with Icarus Verilog (`iverilog`), analyzing waveforms in GTKWave, and an introduction to logic synthesis with Yosys.
+This document covers Day 1 of the RTL Design Workshop, focused on the fundamentals of Verilog RTL design — simulating designs with Icarus Verilog (`iverilog`), analyzing waveforms in GTKWave, and an introduction to logic synthesis with Yosys.
 
 | | |
 |---|---|
@@ -29,7 +29,10 @@ This document covers Day 1 of the RTL Design Workshop, focused on the fundamenta
   - 2.2 Lab 2 — Compile and Simulate
   - 2.3 Lab 3 — Waveform Analysis
   - 2.4 Verilog Code Analysis
-- 3. Takeaways
+- 3. Introduction to Yosys and Logic Synthesis
+  - 3.1 What Synthesis Does
+  - 3.2 Lab: Synthesizing the Design
+- 4. Takeaways
 - Author
 
 ---
@@ -41,7 +44,7 @@ This document covers Day 1 of the RTL Design Workshop, focused on the fundamenta
 | Term | Description |
 |---|---|
 | 🖥️ **Simulator** | A tool that checks whether a digital circuit behaves the way it's supposed to, without needing to build the hardware first. |
-| 📐 **Design** | The Verilog code itself,it describes the logic and behavior the hardware needs to implement. |
+| 📐 **Design** | The Verilog code itself — it describes the logic and behavior the hardware needs to implement. |
 | 🧪 **Testbench** | A separate piece of code that feeds various input patterns into the design and confirms the outputs come out as expected. |
 
 **How a Simulator Works**
@@ -187,12 +190,71 @@ This creates a **2-stage shift** — the input `d` takes two clock cycles to app
 
 ---
 
-## 3️⃣ Takeaways
+## 3️⃣ Introduction to Yosys and Logic Synthesis
+
+### 3.1 What Synthesis Does
+
+Simulation confirms that a design *behaves* correctly, but it doesn't produce hardware. Synthesis is the step that translates the Verilog RTL into a **gate-level netlist** — a description of the design built entirely out of standard cells (AND, OR, flip-flops, muxes, etc.) taken from a technology library. Yosys is the open-source synthesis tool used for this step; it reads the `.lib` file for the target technology (SKY130 in this workshop) along with the Verilog source, and maps the RTL onto the available standard cells.
+
+<img width="1893" height="726" alt="Screenshot 2026-08-08 180322" src="https://github.com/user-attachments/assets/35c90da4-c64f-4f47-86d5-b39cef54a11d" />
+
+
+### 3.2 Lab: Synthesizing the Design
+
+Launch Yosys:
+
+```bash
+yosys
+```
+
+Read the SKY130 liberty file:
+
+```bash
+read_liberty -lib my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+```
+
+Read the design:
+
+```bash
+read_verilog good_shift_reg.v
+```
+
+Run synthesis, pointing to the top module:
+
+```bash
+synth -top good_shift_reg
+```
+
+Map the synthesized design onto the SKY130 standard cells:
+
+```bash
+abc -liberty my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+```
+
+View the resulting gate-level schematic:
+
+```bash
+show
+```
+
+<img width="1600" height="859" alt="shiftreg" src="https://github.com/user-attachments/assets/a0d6a9cf-44de-4215-b166-295c256b7d04" />
+
+
+Write out the gate-level netlist:
+
+```bash
+write_verilog -noattr good_shift_reg_netlist.v
+```
+
+---
+
+## 4️⃣ Takeaways
 
 - ✅ Built a working understanding of RTL design fundamentals in Verilog.
 - ✅ Learned how a Simulator, Design, and Testbench fit together.
 - ✅ Simulated a shift register design using Iverilog.
 - ✅ Analyzed the resulting waveform in GTKWave.
+- ✅ Synthesized the design into a gate-level netlist using Yosys and the SKY130 PDK.
 
 ---
 
