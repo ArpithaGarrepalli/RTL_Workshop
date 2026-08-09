@@ -46,14 +46,13 @@ This repository documents my learning journey and hands-on experiments completed
 
 **Topics Covered:**
 
-- RTL Design Concepts
-- Verilog RTL Coding
-- Multiple Module Design
-- Hierarchical Design
-- RTL Simulation and Verification
-- Yosys Synthesis
-- Gate-Level Netlist
-- Technology Mapping
+- Module Overview
+- Timing Libraries & Technology Files
+- Hierarchical & Flattened Synthesis
+- Flip-Flop Coding Styles
+- RTL Simulation and Synthesis Flow
+- Interesting Optimization
+- Practical Exercise, Results & Conclusion
 
 ➡️ **Documentation:** [Module-2 README](https://github.com/ArpithaGarrepalli/RTL_Workshop/blob/main/Module-2/README.md)
 
