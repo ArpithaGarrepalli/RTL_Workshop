@@ -150,8 +150,9 @@ endmodule
 
 Two of the four possible values of `sel` (`2'b10` and `2'b11`) have no matching branch at all.
 
-<img width="958" height="930" alt="Incomplete case - synthesized netlist" src="https://github.com/user-attachments/assets/4232315c-a6ec-48bf-9f9e-114cd7840424" />
-<img width="958" height="930" alt="Incomplete case - simulation waveform" src="https://github.com/user-attachments/assets/96de6c3e-3e37-4de5-acfd-7e3786cb3228" />
+<img width="896" height="842" alt="Screenshot 2026-08-22 220632" src="https://github.com/user-attachments/assets/2dd28e2b-e97f-4b38-841c-1a4b29c2386a" />
+<img width="941" height="863" alt="Screenshot 2026-08-22 220741" src="https://github.com/user-attachments/assets/5e5793ea-82f0-40ce-b91f-6bd4fcdb62f5" />
+
 
 **Observation:** the synthesized netlist contains a latch, and the waveform shows the output holding its value for the two unhandled `sel` codes.
 
@@ -171,8 +172,9 @@ module comp_case (input i0, input i1, input i2, input [1:0] sel, output reg y);
 endmodule
 ```
 
-<img width="958" height="930" alt="Complete case - synthesized netlist" src="https://github.com/user-attachments/assets/650df85d-feed-4259-8ed3-7fc6acc9e108" />
-<img width="958" height="930" alt="Complete case - simulation waveform" src="https://github.com/user-attachments/assets/42b04923-7e92-49a0-9130-65abc99de451" />
+<img width="896" height="843" alt="Screenshot 2026-08-22 220759" src="https://github.com/user-attachments/assets/a987dcf2-4d87-47e2-a8f3-b4d37e49674b" />
+<img width="905" height="862" alt="Screenshot 2026-08-22 220812" src="https://github.com/user-attachments/assets/7fdc7f38-0f5f-4db7-a9fa-de7fc71a236c" />
+
 
 **Observation:** adding a single `default` branch that assigns the output closes every remaining gap; the resulting netlist is pure combinational logic with no latch.
 
@@ -193,8 +195,9 @@ module partial_case_assign (input i0, input i1, input i2, input [1:0] sel,
 endmodule
 ```
 
-<img width="958" height="930" alt="Partial case assignment - synthesized netlist" src="https://github.com/user-attachments/assets/361ee625-29d0-4ac3-8180-b4f5e2eca1b5" />
-<img width="958" height="930" alt="Partial case assignment - simulation waveform" src="https://github.com/user-attachments/assets/3b30c7bc-4e66-4d75-bcf5-b04d2926cf51" />
+<img width="899" height="837" alt="Screenshot 2026-08-22 220830" src="https://github.com/user-attachments/assets/342e8f2d-880c-4b26-9a8d-3a4ffb774ec9" />
+<img width="943" height="866" alt="Screenshot 2026-08-22 220841" src="https://github.com/user-attachments/assets/a9a10171-d337-4a22-b6c9-e6616c7129ba" />
+
 
 **Observation:** the netlist infers a latch for `y` because it's never assigned in the `default` branch, and a separate latch for `x` because it's never assigned in the `2'b01` branch. The waveform mirrors this — each signal freezes exactly where its own assignment is missing.
 
@@ -215,7 +218,8 @@ module bad_case (input i0, input i1, input i2, input i3, input [1:0] sel, output
 endmodule
 ```
 
-<img width="958" height="930" alt="Bad case assignment - waveform" src="https://github.com/user-attachments/assets/fa936eb8-adfb-4bfa-a8a5-a29689682b1b" />
+<img width="974" height="865" alt="Screenshot 2026-08-22 220853" src="https://github.com/user-attachments/assets/141acaa0-1e50-4b3b-9c1b-005210f318d2" />
+
 
 **Observation:** despite its name, this module lists all four possible `sel` combinations explicitly, and the waveform shows the output switching correctly for every one of them.
 
@@ -227,7 +231,8 @@ endmodule
 
 ### 4.1 Multiplexer
 
-<img width="958" height="930" alt="MUX - simulation waveform" src="https://github.com/user-attachments/assets/ff95c75d-87d0-4f29-8751-25d15fadfdc8" />
+<img width="990" height="831" alt="Screenshot 2026-08-22 220904" src="https://github.com/user-attachments/assets/096d7cb2-7bfa-4844-bf2c-abb243f9155c" />
+
 
 **Observation:** the output tracks whichever input the select line points to, across the full sweep of test values.
 
@@ -235,7 +240,7 @@ endmodule
 
 ### 4.2 Demultiplexer
 
-<img width="958" height="930" alt="DEMUX - simulation waveform" src="https://github.com/user-attachments/assets/e866c0ae-c957-47ea-88ee-416ed30bff1c" />
+<img width="989" height="866" alt="Screenshot 2026-08-22 220921" src="https://github.com/user-attachments/assets/7a99225f-908b-477b-8ce5-86626bdf54d0" />
 
 **Observation:** the single input is routed to exactly one output line at a time, and every other output line stays inactive.
 
@@ -243,7 +248,8 @@ endmodule
 
 ### 4.3 Ripple Carry Adder
 
-<img width="958" height="930" alt="Ripple Carry Adder - waveform" src="https://github.com/user-attachments/assets/f0c2228d-548b-48dd-b195-88b50290579b" />
+<img width="937" height="901" alt="Screenshot 2026-08-22 220932" src="https://github.com/user-attachments/assets/67adb400-387d-4c4f-b33d-b8da02b62e5f" />
+
 
 **Observation:** the carry signal propagates correctly through each full-adder stage, and the sum/carry outputs match expected binary addition for every tested input pair.
 
