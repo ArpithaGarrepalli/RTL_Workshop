@@ -17,7 +17,7 @@ Welcome to my VSD RTL Design and Synthesis Workshop repository. This repo tracks
 | Session | Topics Covered |
 |---|---|
 | [Session 1](./Session_1) | Environment setup — RISC-V toolchain, RTL simulation with Icarus Verilog and GTKWave, intro to Yosys synthesis, sync vs async reset, SKY130 physical design flow |
-| [Session 2](./Session_2) | Combinational/sequential logic optimization, gate-level simulation (GLS), synthesis-simulation mismatch, blocking vs non-blocking assignments, latch inference, generate blocks/ripple carry adder |
+| [Session 2](./Session_2) | Combinational/sequential logic optimization, gate-level simulation (GLS), synthesis-simulation mismatch, blocking vs non-blocking assignments, counter inference, generate blocks/ripple carry adder |
 | [Session 3](./Session_3) | BabySoC simulation — pre-synthesis functional simulation and post-synthesis gate-level simulation (GLS) |
 
 More sessions will be added here as the workshop progresses.
