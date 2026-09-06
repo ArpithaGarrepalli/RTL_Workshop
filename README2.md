@@ -24,7 +24,7 @@ This repository documents my learning journey and hands-on experiments completed
 - Introduction to the SKY130 PDK (Process Design Kit)
 - Setting up and running a basic OpenLANE flow
 
-➡️ **Documentation:** [Module-1 README](./Module-1/README.md)
+➡️ **Documentation:** [Module-1 README](./Module-1-pd/README.md)
 
 ---
 
@@ -38,7 +38,7 @@ This repository documents my learning journey and hands-on experiments completed
 - Introduction to library cells and standard-cell characterization
 - How library cells connect back to floorplanning and placement decisions
 
-➡️ **Documentation:** [Module-2 README](./Module-2/README.md)
+➡️ **Documentation:** [Module-2 README](./Module-2-pd/README.md)
 
 ---
 
