@@ -201,10 +201,10 @@ The flow's `floorplan` step reports the die/core geometry it computed (visible a
 cd designs/picorv32a/runs/06-09_11-26/results/floorplan
 ls -ltr
 less picorv32a.floorplan.def
-magic -T /path/to/sky130A.tech read picorv32a.floorplan.def &
 ```
 
 <img width="1917" height="1020" alt="Screenshot 2026-09-06 172538" src="https://github.com/user-attachments/assets/9da89218-3ab4-4e24-8d90-a0b6519a57be" />
+
 
 Opening the resulting floorplan in **Magic** (with DRC checking enabled) shows the die outline with rows ready for placement:
 
