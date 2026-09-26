@@ -261,11 +261,7 @@ Magic requires the SKY130A technology file (`sky130A.tech`) to correctly interpr
 
 A cell boundary defines the exact width/height occupied by the cell, ensuring consistent dimensions, accurate placement, alignment with neighboring cells, and correct VDD/GND rail locations for library compatibility.
 
-<img width="1600" height="952" alt="WhatsApp Image 2026-09-25 at 7 51 30 PM (6)" src="https://github.com/user-attachments/assets/8d24fea3-f1dc-466f-a52a-838da60fed89" />
-
 VDD and GND rails are then connected: the PMOS network toward VDD and the NMOS network toward GND, matching the pull-up/pull-down structure of the inverter.
-<img width="1600" height="947" alt="WhatsApp Image 2026-09-25 at 7 51 30 PM (8)" src="https://github.com/user-attachments/assets/3c7ea717-0ff7-43f7-a5ef-ad128414f088" />
-
 
 ### 5.4 CMOS Inverter Layout and Abstract View
 
@@ -292,7 +288,7 @@ DRC verifies that a layout satisfies the physical design rules of the technology
 - Minimum extension
 - Layer-specific spacing requirements
 
-<img width="957" alt="Magic DRC error debugging view" src="https://github.com/user-attachments/assets/34c591b5-0cee-4e0e-a2d0-060a90a82f01" />
+<img width="693" height="865" alt="Screenshot 2026-09-26 081726" src="https://github.com/user-attachments/assets/9cb0cc71-c60c-462f-b3ca-072edb586d3d" />
 
 ### 6.2 Fixing the poly.9 DRC Error
 
@@ -313,7 +309,7 @@ This exercise checks the minimum spacing between polysilicon resistor structures
 
 Rather than treating a DRC error as just a message, it should be analyzed as a geometrical violation by identifying: the affected layers, their geometrical relationship, the required rule condition, the actual layout condition, and the needed correction.
 
-<img width="1911" alt="CMOS inverter layout in Magic within the SKY130 DRC environment" src="https://github.com/user-attachments/assets/3c608d84-c205-44f2-9cb9-cd639bab997b" />
+<img width="1600" height="947" alt="WhatsApp Image 2026-09-25 at 7 51 30 PM (8)" src="https://github.com/user-attachments/assets/71ded9d7-0289-4ac5-b453-bec84074ca8c" />
 
 ---
 
@@ -337,21 +333,15 @@ Simulation
 
 Extraction identifies the transistors, connections, nodes, device parameters, and parasitic components implied by the physical geometry, converting it into an electrical (SPICE-compatible) representation.
 
-<img width="816" alt="Layout extraction process in Magic" src="https://github.com/user-attachments/assets/bb68284e-2d58-4ec5-bd11-45a8201ef07a" />
+<img width="882" height="855" alt="Screenshot 2026-09-26 081917" src="https://github.com/user-attachments/assets/07db20c5-d8a9-4b3f-828f-8fece6df6223" />
 
 ### 7.2 Extracted Netlist and SPICE File Generation
 
 The extracted `.ext`/SPICE files are generated and inspected, then combined with SKY130 model files and a standard-cell subcircuit definition (input/output nodes, VDD, GND) into a simulation-ready SPICE deck.
 
-<img width="1913" alt="SKY130 SPICE/model file content used for transistor simulation" src="https://github.com/user-attachments/assets/9f4d5d8a-527a-42bf-ae65-e50ae139df87" />
+<img width="1600" height="953" alt="WhatsApp Image 2026-09-25 at 7 51 30 PM (13)" src="https://github.com/user-attachments/assets/fb092721-f8ac-422e-a1e4-84210e0b3bd1" />
 
-<img width="1916" alt="Extracted .ext/SPICE file creation and ngspice setup" src="https://github.com/user-attachments/assets/c5311e92-3cb8-497a-83bf-55cf8d691b27" />
-
-<img width="1917" alt="Extracted SPICE netlist showing PMOS/NMOS devices and parasitic capacitors" src="https://github.com/user-attachments/assets/19a42134-8cc6-4f90-99eb-3b4f82758a89" />
-
-<img width="818" alt="Generated extracted files and netlist output" src="https://github.com/user-attachments/assets/8f8d569b-b58a-4a23-895c-19a051f78f26" />
-
-<img width="606" alt="Final SPICE file generated for ngspice simulation" src="https://github.com/user-attachments/assets/b9aad0c7-8e25-434d-bb2c-3f849da30a07" />
+<img width="1600" height="947" alt="WhatsApp Image 2026-09-25 at 7 51 30 PM (12)" src="https://github.com/user-attachments/assets/1530d294-cf8e-4a01-93b5-bd30e57ee0a5" />
 
 ---
 
@@ -361,11 +351,10 @@ The extracted `.ext`/SPICE files are generated and inspected, then combined with
 
 The extracted netlist is simulated in ngspice with a time-varying input while monitoring Input, Output, VDD, and GND to verify correct connectivity and switching behavior.
 
-<img width="1917" alt="Running the extracted SPICE netlist in ngspice" src="https://github.com/user-attachments/assets/5352b948-7659-4826-a794-50047fa2d026" />
+<img width="1600" height="951" alt="WhatsApp Image 2026-09-25 at 7 51 30 PM (11)" src="https://github.com/user-attachments/assets/f5e4238c-9524-49ca-9e1c-4c97488902e9" />
 
-<img width="607" alt="NGSPICE transient analysis of the extracted CMOS inverter" src="https://github.com/user-attachments/assets/b74bee9e-c723-4040-b64a-293c6d605931" />
+<img width="1600" height="945" alt="WhatsApp Image 2026-09-25 at 7 51 30 PM (10)" src="https://github.com/user-attachments/assets/a67648d4-360e-4dd8-b082-ad9ffc9f0278" />
 
-<img width="1917" alt="ngspice transient analysis and simulation results" src="https://github.com/user-attachments/assets/85c420ed-5139-42c7-b104-1fa033550368" />
 
 ### 8.2 Input/Output Waveforms
 
@@ -376,9 +365,7 @@ The extracted netlist is simulated in ngspice with a time-varying input while mo
 
 The fundamental relationship confirmed is **Output = NOT(Input)**, with the output approaching the expected VDD/GND levels.
 
-<img width="1917" alt="CMOS inverter input/output transient waveform" src="https://github.com/user-attachments/assets/08b6bfeb-4fc3-4276-91ad-e7f3c4480fca" />
-
-<img width="607" alt="Simulated input and output transient waveforms showing complementary switching" src="https://github.com/user-attachments/assets/275f1a5e-bde5-4f21-8d87-f85c24f0745b" />
+<img width="1600" height="949" alt="WhatsApp Image 2026-09-25 at 7 51 30 PM (9)" src="https://github.com/user-attachments/assets/07966352-3fef-4048-8e26-8238a008cb9b" />
 
 ### 8.3 Timing and Parasitic Effects
 
