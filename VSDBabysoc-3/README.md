@@ -453,11 +453,9 @@ The summary report provides an overview of the multi-corner timing analysis.
 
 **Codespace WNS graph**
 
-<img width="700" alt="Codespace WNS graph" src="images_codespace/wns%20graph.png" />
 
 **Codespace TNS graph**
 
-<img width="700" alt="Codespace TNS graph" src="images_codespace/tns%20graph.png" />
 
 ### 9.9 Observations
 
