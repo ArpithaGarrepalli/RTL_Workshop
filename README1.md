@@ -17,8 +17,8 @@ Welcome to my VSD RTL Design and Synthesis Workshop repository. This repo tracks
 | Session | Topics Covered |
 |---|---|
 | [Session 1](./Session-1) | Environment setup — RISC-V toolchain, RTL simulation with Icarus Verilog and GTKWave, intro to Yosys synthesis, sync vs async reset, SKY130 physical design flow |
-| [Session 2](./Session-2) | Debugging a Bad MUX, Yosys Synthesis Walkthroughs, and BabySoC Pre-Synthesis Simulation|
-| [Session 3](./Session-3) | GLS of goodmux and badmux BabySoC simulation — pre-synthesis functional simulation and post-synthesis gate-level simulation (GLS) |
+| [Session 2](./VSDBabysoc-1) | Debugging a Bad MUX, Yosys Synthesis Walkthroughs, and BabySoC Pre-Synthesis Simulation|
+| [Session 3](./VSDBabysoc-2) | GLS of goodmux and badmux BabySoC simulation — pre-synthesis functional simulation and post-synthesis gate-level simulation (GLS) |
 
 More sessions will be added here as the workshop progresses.
 
